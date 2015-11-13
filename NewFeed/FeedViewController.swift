@@ -8,7 +8,7 @@ import UIKit
 
 private let feedCellReuseIdentifier: String = "FeedCellReuseIdentifier"
 private let articleSearchApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?"
-private let apiKey = "32a4d3342b658b316d4b1369d04a6e5b:16:73440927d"
+private let apiKey = "32a4d3342b658b316d4b1369d04a6e5b:16:73440927"
 
 struct FeedArticleItem  {
   
@@ -47,7 +47,12 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 var feedArticleItem = FeedArticleItem()
                 feedArticleItem.identifier = jsonArticleItem["_id"]! as? String
                 feedArticleItem.webUrl = jsonArticleItem["web_url"] as? String
-                feedArticleItem.thumbnailUrl = jsonArticleItem["multimedia"]![2]["url"] as? String
+                if let multimediaArray = jsonArticleItem["multimedia"] as? NSArray {
+                  if let thumbnailMetadata = multimediaArray.lastObject {
+                    feedArticleItem.thumbnailUrl = thumbnailMetadata["url"] as? String
+ 
+                  }
+                }
                 feedArticleItem.date = jsonArticleItem["pub_date"]! as? String
                 feedArticleItem.date = feedArticleItem.date!.substringToIndex(feedArticleItem.date!.startIndex.advancedBy(10))
                 feedArticleItem.headline = jsonArticleItem["headline"]!["main"]! as? String
