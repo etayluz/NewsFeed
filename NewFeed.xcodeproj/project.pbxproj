@@ -13,6 +13,7 @@
 		B44B51DC1BF5125B0013FE9B /* NewFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44B51DA1BF5125B0013FE9B /* NewFeed.xcdatamodeld */; };
 		B44B51DE1BF5125B0013FE9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44B51DD1BF5125B0013FE9B /* Assets.xcassets */; };
 		B44B51E11BF5125B0013FE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B44B51DF1BF5125B0013FE9B /* LaunchScreen.storyboard */; };
+		B44B51E91BF5147B0013FE9B /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B44B51DD1BF5125B0013FE9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B44B51E01BF5125B0013FE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B44B51E21BF5125B0013FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				B44B51D31BF5125B0013FE9B /* AppDelegate.swift */,
 				B44B51D51BF5125B0013FE9B /* FeedViewController.swift */,
+				B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */,
 				B44B51D71BF5125B0013FE9B /* Main.storyboard */,
 				B44B51DD1BF5125B0013FE9B /* Assets.xcassets */,
 				B44B51DF1BF5125B0013FE9B /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B44B51DC1BF5125B0013FE9B /* NewFeed.xcdatamodeld in Sources */,
+				B44B51E91BF5147B0013FE9B /* FeedTableViewCell.swift in Sources */,
 				B44B51D61BF5125B0013FE9B /* FeedViewController.swift in Sources */,
 				B44B51D41BF5125B0013FE9B /* AppDelegate.swift in Sources */,
 			);
@@ -290,6 +294,7 @@
 				B44B51E71BF5125B0013FE9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

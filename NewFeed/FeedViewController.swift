@@ -6,39 +6,73 @@
 
 import UIKit
 
-struct GlobalConstants {
-  static let articleSearchApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?"
-  static let apiKey = "32a4d3342b658b316d4b1369d04a6e5b:16:73440927"
+private let feedCellReuseIdentifier: String = "FeedCellReuseIdentifier"
+private let articleSearchApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?"
+private let apiKey = "32a4d3342b658b316d4b1369d04a6e5b:16:73440927d"
+
+struct FeedArticleItem  {
   
+  var identifier : String?
+  var webUrl : String?
+  var thumbnailUrl : String?
+  var date : String?
+  var headline : String?
+  var snippet : String?
 }
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-  @IBOutlet var tableView: UITableView!
+  @IBOutlet var articleListTableView: UITableView!
   
-  var articleList = [[NSObject: AnyObject]]()
-  
+  var articleList = [FeedArticleItem]()
+  var fetchErrorShown : Bool? = false
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
     fetchArticleFeed()
     
     // Register Class for Cell Reuse
-    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+    articleListTableView.registerClass(FeedTableViewCell.self, forCellReuseIdentifier: feedCellReuseIdentifier)
   }
   
   func fetchArticleFeed() {
     for page in 1...5 {
-      let url = NSURL(string: GlobalConstants.articleSearchApi + "&page=" + String(page) + "&fq=document_type:(article)&sort=newest&api-key=" + GlobalConstants.apiKey)
+      let url = NSURL(string: articleSearchApi + "&page=" + String(page) + "&fq=document_type:(article)&sort=newest&api-key=" + apiKey)
       
       let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
         do {
           if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-            if let articleItems = jsonResult["response"]!["docs"]! as? [[NSObject: AnyObject]] {
-              self.articleList = self.articleList + articleItems
+            if let jsonArticleItems = jsonResult["response"]!["docs"]! as? [[String: AnyObject]] {
+              for jsonArticleItem in jsonArticleItems {
+                var feedArticleItem = FeedArticleItem()
+                feedArticleItem.identifier = jsonArticleItem["_id"]! as? String
+                feedArticleItem.webUrl = jsonArticleItem["web_url"] as? String
+                feedArticleItem.thumbnailUrl = jsonArticleItem["multimedia"]![2]["url"] as? String
+                feedArticleItem.date = jsonArticleItem["pub_date"]! as? String
+                feedArticleItem.date = feedArticleItem.date!.substringToIndex(feedArticleItem.date!.startIndex.advancedBy(10))
+                feedArticleItem.headline = jsonArticleItem["headline"]!["main"]! as? String
+                feedArticleItem.snippet = jsonArticleItem["snippet"]! as? String
+
+                self.articleList.append(feedArticleItem)
+              }
             }
+            
+            if (page == 5) {
+                dispatch_async(dispatch_get_main_queue()) {
+                  self.articleListTableView.reloadData()
+                }
+            }
+            
           }
         } catch {
-          print(error)
+          guard (self.fetchErrorShown == false) else {return}
+          
+          let alert = UIAlertController(title: "Error", message: "Could not reach server", preferredStyle: UIAlertControllerStyle.Alert)
+          alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil))
+          dispatch_async(dispatch_get_main_queue()) {
+            self.presentViewController(alert, animated: true, completion: nil)
+          }
+          self.fetchErrorShown = true
         }
       }
       
@@ -53,16 +87,16 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     // Fetch Item
-    let item = articleList[indexPath.row]
+    let articleItem = articleList[indexPath.row]
 
-    
     // Dequeue Table View Cell
-    let tableViewCell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath)
-    
+    let feedTableViewCell = tableView.dequeueReusableCellWithIdentifier(feedCellReuseIdentifier, forIndexPath: indexPath) as? FeedTableViewCell
+
+    feedTableViewCell!.configureWithArticleItem(articleItem)
     // Configure Table View Cell
     //    tableViewCell.textLabel?.text = item
     
-    return tableViewCell
+    return feedTableViewCell!
   }
   
 }

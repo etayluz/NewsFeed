@@ -17,24 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaR-cS-bl9" userLabel="News Feed">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" News Feed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaR-cS-bl9" userLabel="News Feed">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Kho-7e-JBv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.62745098039215685" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-DM-rVD" userLabel="News Feed Table View">
-                                <rect key="frame" x="0.0" y="41" width="600" height="559"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-DM-rVD" userLabel="Article List Table View">
+                                <rect key="frame" x="0.0" y="105" width="600" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="I77-YJ-SnZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedTableViewCell" id="I77-YJ-SnZ" customClass="FeedTableViewCell" customModule="NewFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I77-YJ-SnZ" id="EE5-Rx-JpG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82Z-g3-pJE">
+                                                    <rect key="frame" x="30" y="0.0" width="100" height="100"/>
+                                                    <color key="backgroundColor" red="1" green="0.18415083239999999" blue="0.173902327" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="thumbnailImageView" destination="82Z-g3-pJE" id="gcB-hc-u85"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -44,9 +56,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="biZ-DM-rVD" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="L73-5g-xoG"/>
+                            <constraint firstItem="VaR-cS-bl9" firstAttribute="trailing" secondItem="biZ-DM-rVD" secondAttribute="trailing" id="SC2-dP-hac"/>
+                            <constraint firstItem="biZ-DM-rVD" firstAttribute="top" secondItem="VaR-cS-bl9" secondAttribute="bottom" constant="43" id="V85-pN-s5B"/>
+                            <constraint firstAttribute="trailing" secondItem="biZ-DM-rVD" secondAttribute="trailing" id="e8U-GV-Iwy"/>
+                            <constraint firstItem="biZ-DM-rVD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g9O-iI-ZYQ"/>
+                            <constraint firstItem="biZ-DM-rVD" firstAttribute="leading" secondItem="VaR-cS-bl9" secondAttribute="leading" id="gSx-im-RXa"/>
+                            <constraint firstItem="VaR-cS-bl9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oUE-Sj-2BT"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="biZ-DM-rVD" id="0rJ-Ww-9O9"/>
+                        <outlet property="articleListTableView" destination="biZ-DM-rVD" id="6yl-fb-g41"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
