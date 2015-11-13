@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B44B51CF1BF5125B0013FE9B"
-               BuildableName = "NewFeed.app"
-               BlueprintName = "NewFeed"
-               ReferencedContainer = "container:NewFeed.xcodeproj">
+               BuildableName = "NewsFeed.app"
+               BlueprintName = "NewsFeed"
+               ReferencedContainer = "container:NewsFeed.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B44B51CF1BF5125B0013FE9B"
-            BuildableName = "NewFeed.app"
-            BlueprintName = "NewFeed"
-            ReferencedContainer = "container:NewFeed.xcodeproj">
+            BuildableName = "NewsFeed.app"
+            BlueprintName = "NewsFeed"
+            ReferencedContainer = "container:NewsFeed.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B44B51CF1BF5125B0013FE9B"
-            BuildableName = "NewFeed.app"
-            BlueprintName = "NewFeed"
-            ReferencedContainer = "container:NewFeed.xcodeproj">
+            BuildableName = "NewsFeed.app"
+            BlueprintName = "NewsFeed"
+            ReferencedContainer = "container:NewsFeed.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B44B51CF1BF5125B0013FE9B"
-            BuildableName = "NewFeed.app"
-            BlueprintName = "NewFeed"
-            ReferencedContainer = "container:NewFeed.xcodeproj">
+            BuildableName = "NewsFeed.app"
+            BlueprintName = "NewsFeed"
+            ReferencedContainer = "container:NewsFeed.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

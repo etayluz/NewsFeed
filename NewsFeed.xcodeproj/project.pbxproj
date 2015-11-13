@@ -10,18 +10,18 @@
 		B44B51D41BF5125B0013FE9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B51D31BF5125B0013FE9B /* AppDelegate.swift */; };
 		B44B51D61BF5125B0013FE9B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B51D51BF5125B0013FE9B /* FeedViewController.swift */; };
 		B44B51D91BF5125B0013FE9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B44B51D71BF5125B0013FE9B /* Main.storyboard */; };
-		B44B51DC1BF5125B0013FE9B /* NewFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44B51DA1BF5125B0013FE9B /* NewFeed.xcdatamodeld */; };
+		B44B51DC1BF5125B0013FE9B /* NewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44B51DA1BF5125B0013FE9B /* NewsFeed.xcdatamodeld */; };
 		B44B51DE1BF5125B0013FE9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44B51DD1BF5125B0013FE9B /* Assets.xcassets */; };
 		B44B51E11BF5125B0013FE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B44B51DF1BF5125B0013FE9B /* LaunchScreen.storyboard */; };
 		B44B51E91BF5147B0013FE9B /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B44B51D01BF5125B0013FE9B /* NewFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44B51D01BF5125B0013FE9B /* NewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44B51D31BF5125B0013FE9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B44B51D51BF5125B0013FE9B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B44B51D81BF5125B0013FE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B44B51DB1BF5125B0013FE9B /* NewFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewFeed.xcdatamodel; sourceTree = "<group>"; };
+		B44B51DB1BF5125B0013FE9B /* NewsFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsFeed.xcdatamodel; sourceTree = "<group>"; };
 		B44B51DD1BF5125B0013FE9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B44B51E01BF5125B0013FE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B44B51E21BF5125B0013FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		B44B51C71BF5125B0013FE9B = {
 			isa = PBXGroup;
 			children = (
-				B44B51D21BF5125B0013FE9B /* NewFeed */,
+				B44B51D21BF5125B0013FE9B /* NewsFeed */,
 				B44B51D11BF5125B0013FE9B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		B44B51D11BF5125B0013FE9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B44B51D01BF5125B0013FE9B /* NewFeed.app */,
+				B44B51D01BF5125B0013FE9B /* NewsFeed.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B44B51D21BF5125B0013FE9B /* NewFeed */ = {
+		B44B51D21BF5125B0013FE9B /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
 				B44B51D31BF5125B0013FE9B /* AppDelegate.swift */,
@@ -65,17 +65,18 @@
 				B44B51DD1BF5125B0013FE9B /* Assets.xcassets */,
 				B44B51DF1BF5125B0013FE9B /* LaunchScreen.storyboard */,
 				B44B51E21BF5125B0013FE9B /* Info.plist */,
-				B44B51DA1BF5125B0013FE9B /* NewFeed.xcdatamodeld */,
+				B44B51DA1BF5125B0013FE9B /* NewsFeed.xcdatamodeld */,
 			);
-			path = NewFeed;
+			name = NewsFeed;
+			path = NewsFeed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B44B51CF1BF5125B0013FE9B /* NewFeed */ = {
+		B44B51CF1BF5125B0013FE9B /* NewsFeed */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B44B51E51BF5125B0013FE9B /* Build configuration list for PBXNativeTarget "NewFeed" */;
+			buildConfigurationList = B44B51E51BF5125B0013FE9B /* Build configuration list for PBXNativeTarget "NewsFeed" */;
 			buildPhases = (
 				B44B51CC1BF5125B0013FE9B /* Sources */,
 				B44B51CD1BF5125B0013FE9B /* Frameworks */,
@@ -85,9 +86,9 @@
 			);
 			dependencies = (
 			);
-			name = NewFeed;
-			productName = NewFeed;
-			productReference = B44B51D01BF5125B0013FE9B /* NewFeed.app */;
+			name = NewsFeed;
+			productName = NewsFeed;
+			productReference = B44B51D01BF5125B0013FE9B /* NewsFeed.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B44B51CB1BF5125B0013FE9B /* Build configuration list for PBXProject "NewFeed" */;
+			buildConfigurationList = B44B51CB1BF5125B0013FE9B /* Build configuration list for PBXProject "NewsFeed" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -118,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B44B51CF1BF5125B0013FE9B /* NewFeed */,
+				B44B51CF1BF5125B0013FE9B /* NewsFeed */,
 			);
 		};
 /* End PBXProject section */
@@ -141,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B44B51DC1BF5125B0013FE9B /* NewFeed.xcdatamodeld in Sources */,
+				B44B51DC1BF5125B0013FE9B /* NewsFeed.xcdatamodeld in Sources */,
 				B44B51E91BF5147B0013FE9B /* FeedTableViewCell.swift in Sources */,
 				B44B51D61BF5125B0013FE9B /* FeedViewController.swift in Sources */,
 				B44B51D41BF5125B0013FE9B /* AppDelegate.swift in Sources */,
@@ -257,9 +258,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = NewFeed/Info.plist;
+				INFOPLIST_FILE = NewsFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.etayluz.newsfeed.NewFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etayluz.newsfeed.NewsFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -268,9 +269,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = NewFeed/Info.plist;
+				INFOPLIST_FILE = NewsFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.etayluz.newsfeed.NewFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etayluz.newsfeed.NewsFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -278,7 +279,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B44B51CB1BF5125B0013FE9B /* Build configuration list for PBXProject "NewFeed" */ = {
+		B44B51CB1BF5125B0013FE9B /* Build configuration list for PBXProject "NewsFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B44B51E31BF5125B0013FE9B /* Debug */,
@@ -287,7 +288,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B44B51E51BF5125B0013FE9B /* Build configuration list for PBXNativeTarget "NewFeed" */ = {
+		B44B51E51BF5125B0013FE9B /* Build configuration list for PBXNativeTarget "NewsFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B44B51E61BF5125B0013FE9B /* Debug */,
@@ -299,13 +300,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B44B51DA1BF5125B0013FE9B /* NewFeed.xcdatamodeld */ = {
+		B44B51DA1BF5125B0013FE9B /* NewsFeed.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B44B51DB1BF5125B0013FE9B /* NewFeed.xcdatamodel */,
+				B44B51DB1BF5125B0013FE9B /* NewsFeed.xcdatamodel */,
 			);
-			currentVersion = B44B51DB1BF5125B0013FE9B /* NewFeed.xcdatamodel */;
-			path = NewFeed.xcdatamodeld;
+			currentVersion = B44B51DB1BF5125B0013FE9B /* NewsFeed.xcdatamodel */;
+			path = NewsFeed.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
