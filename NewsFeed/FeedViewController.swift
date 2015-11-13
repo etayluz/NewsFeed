@@ -33,7 +33,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
           if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
             if let jsonArticleItems = jsonResult["response"]!["docs"]! as? [[String: AnyObject]] {
               for jsonArticleItem in jsonArticleItems {
-                let feedArticleItem = FeedArticleItem(jsonArticleItem: jsonArticleItem)
+                let feedArticleItem = FeedArticleItem(jsonArticleItem: jsonArticleItem) 
                 self.articleList.append(feedArticleItem)
               }
             }
@@ -59,6 +59,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
       }
       
       task.resume()
+    }
+  }
+  
+  //MARK: - Segue to Article View Controller
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    if (segue.identifier == "ArticleViewControllerSegue") {
+      let indexPath = articleListTableView .indexPathForCell(sender as! FeedTableViewCell)
+      let articleViewController  = segue.destinationViewController as! ArticleViewController;
+      articleViewController.articleItem = articleList[indexPath!.item]
     }
   }
   

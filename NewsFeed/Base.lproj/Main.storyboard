@@ -87,6 +87,7 @@
                                             <outlet property="headlineLabel" destination="63z-tD-eAd" id="biG-gP-cH2"/>
                                             <outlet property="taglineLabel" destination="PX9-CE-xd0" id="Ubh-eL-nsH"/>
                                             <outlet property="thumbnailImageView" destination="82Z-g3-pJE" id="gcB-hc-u85"/>
+                                            <segue destination="LhU-Vl-Meb" kind="show" identifier="ArticleViewControllerSegue" id="iJz-2n-ipa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -114,6 +115,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="358" y="387"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="3cz-x0-jou">
+            <objects>
+                <viewController id="LhU-Vl-Meb" customClass="ArticleViewController" customModule="NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lOv-v1-8dn"/>
+                        <viewControllerLayoutGuide type="bottom" id="t95-o6-W1O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aDz-UN-5eq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74e-jz-ST8" userLabel="Header background">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="57"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOQ-yO-YbU" userLabel="Back Button">
+                                        <rect key="frame" x="6" y="21" width="60" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Yju-FW-IXj"/>
+                                            <constraint firstAttribute="width" constant="60" id="bhY-Tp-lYO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <state key="normal" title="←">
+                                            <color key="titleColor" red="0.0" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="LhU-Vl-Meb" eventType="touchUpInside" id="aUh-go-gyU"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gc-AE-SXU" userLabel="Article Title">
+                                        <rect key="frame" x="83" y="19" width="441" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="KtV-CJ-2Vh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="KtV-CJ-2Vh"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4Gc-AE-SXU" secondAttribute="bottom" constant="1" id="1co-NS-gUN"/>
+                                    <constraint firstItem="4Gc-AE-SXU" firstAttribute="leading" secondItem="74e-jz-ST8" secondAttribute="leading" constant="83" id="4fx-wX-YW5"/>
+                                    <constraint firstItem="4Gc-AE-SXU" firstAttribute="centerX" secondItem="74e-jz-ST8" secondAttribute="centerX" constant="3.5" id="7mA-ah-lZH"/>
+                                    <constraint firstItem="ZOQ-yO-YbU" firstAttribute="top" secondItem="74e-jz-ST8" secondAttribute="top" constant="21" id="Toe-Eb-Y9Y"/>
+                                    <constraint firstItem="4Gc-AE-SXU" firstAttribute="top" secondItem="74e-jz-ST8" secondAttribute="top" constant="19" id="WQB-Ac-7by"/>
+                                    <constraint firstItem="ZOQ-yO-YbU" firstAttribute="centerY" secondItem="4Gc-AE-SXU" secondAttribute="centerY" id="kZO-gS-VBf"/>
+                                    <constraint firstItem="ZOQ-yO-YbU" firstAttribute="leading" secondItem="74e-jz-ST8" secondAttribute="leading" constant="6" id="qyx-Ly-zcW"/>
+                                </constraints>
+                            </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Atj-Sb-gKo" userLabel="Article Web View">
+                                <rect key="frame" x="0.0" y="57" width="600" height="543"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LhU-Vl-Meb" id="l4L-ss-TrC"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="74e-jz-ST8" firstAttribute="trailing" secondItem="Atj-Sb-gKo" secondAttribute="trailing" id="CmZ-jI-MbU"/>
+                            <constraint firstItem="74e-jz-ST8" firstAttribute="leading" secondItem="Atj-Sb-gKo" secondAttribute="leading" id="P1H-tT-CrU"/>
+                            <constraint firstItem="Atj-Sb-gKo" firstAttribute="leading" secondItem="aDz-UN-5eq" secondAttribute="leading" id="T7d-UE-aKA"/>
+                            <constraint firstItem="Atj-Sb-gKo" firstAttribute="bottom" secondItem="t95-o6-W1O" secondAttribute="top" id="mCX-ke-aKM"/>
+                            <constraint firstItem="Atj-Sb-gKo" firstAttribute="top" secondItem="74e-jz-ST8" secondAttribute="bottom" id="ozP-ti-gSl"/>
+                            <constraint firstAttribute="trailing" secondItem="Atj-Sb-gKo" secondAttribute="trailing" id="wJA-i7-6Rl"/>
+                            <constraint firstItem="74e-jz-ST8" firstAttribute="top" secondItem="aDz-UN-5eq" secondAttribute="top" id="yHR-eo-LEH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="articleTitleLabel" destination="4Gc-AE-SXU" id="Zqk-D5-y82"/>
+                        <outlet property="articleWebView" destination="Atj-Sb-gKo" id="CyX-8X-vyy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ke3-HG-TXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="387"/>
         </scene>
     </scenes>
 </document>
