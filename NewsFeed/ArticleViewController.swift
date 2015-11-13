@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
   @IBOutlet var articleWebView: UIWebView!
@@ -23,12 +24,15 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     let requestObj = NSURLRequest(URL: url!)
     articleWebView.loadRequest(requestObj);
     
+    PKHUD.sharedHUD.contentView = PKHUDProgressView()
+    PKHUD.sharedHUD.show()
+    
   }
   
   //MARK: - Web View Protocol
   func webViewDidFinishLoad(webView: UIWebView)
   {
-    print("OK")
+    PKHUD.sharedHUD.hide()
   }
   
   //MARK: - Actions

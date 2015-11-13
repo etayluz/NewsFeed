@@ -5,6 +5,7 @@
 //
 
 import UIKit
+import PKHUD
 
 private let feedCellReuseIdentifier: String = "FeedTableViewCell"
 private let articleSearchApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?"
@@ -24,11 +25,22 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
   
   func fetchArticleFeed() {
+    
+    PKHUD.sharedHUD.contentView = PKHUDProgressView()
+    PKHUD.sharedHUD.show()
+    
     var numberOfPageRequests:Int = 5;
     for page in 1...numberOfPageRequests {
       let url = NSURL(string: articleSearchApi + "&page=" + String(page) + "&fq=document_type:(article)&sort=newest&api-key=" + apiKey)
-      
+    
       let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+        guard (self.fetchErrorShown == false) else {return}
+        guard (data != nil) else {
+          self.fetchErrorShown = true
+          self.showConnectionErrorAlert()
+          return
+        }
+
         do {
           if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
             if let jsonArticleItems = jsonResult["response"]!["docs"]! as? [[String: AnyObject]] {
@@ -41,6 +53,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             numberOfPageRequests--
             if (numberOfPageRequests == 0) {
                 dispatch_async(dispatch_get_main_queue()) {
+                  PKHUD.sharedHUD.hide()
                   self.articleListTableView.reloadData()
                 }
             }
@@ -48,17 +61,37 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
           }
         } catch {
           guard (self.fetchErrorShown == false) else {return}
-          
-          let alert = UIAlertController(title: "Error", message: "Could not reach server", preferredStyle: UIAlertControllerStyle.Alert)
-          alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil))
-          dispatch_async(dispatch_get_main_queue()) {
-            self.presentViewController(alert, animated: true, completion: nil)
-          }
+          self.showConnectionErrorAlert()
           self.fetchErrorShown = true
         }
       }
       
       task.resume()
+    }
+  }
+  
+  func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, willCacheResponse proposedResponse: NSCachedURLResponse, completionHandler: (NSCachedURLResponse!) -> Void) {
+    print("willCacheResponse was called")
+    
+    let response: NSURLResponse = proposedResponse.response
+    let httpResponse = response as! NSHTTPURLResponse
+    let headers = httpResponse.allHeaderFields
+    
+    var modifiedHeaders = headers
+    modifiedHeaders.updateValue("max-age=300", forKey: "Cache-Control")
+    let modifiedResponse = NSHTTPURLResponse(URL: httpResponse.URL!, statusCode: httpResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: modifiedHeaders as? [String:String])
+    let cachedResponse = NSCachedURLResponse(response: modifiedResponse!, data: proposedResponse.data, userInfo: proposedResponse.userInfo, storagePolicy: proposedResponse.storagePolicy)
+    completionHandler(cachedResponse)
+  }
+  
+  func showConnectionErrorAlert(){
+    dispatch_async(dispatch_get_main_queue()) {
+      PKHUD.sharedHUD.hide()
+    }
+    let alert = UIAlertController(title: "Error", message: "Could not reach server", preferredStyle: UIAlertControllerStyle.Alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler:nil))
+    dispatch_async(dispatch_get_main_queue()) {
+      self.presentViewController(alert, animated: true, completion: nil)
     }
   }
   
