@@ -6,7 +6,7 @@
 
 import UIKit
 
-private let feedCellReuseIdentifier: String = "FeedCellReuseIdentifier"
+private let feedCellReuseIdentifier: String = "FeedTableViewCell"
 private let articleSearchApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?"
 private let apiKey = "32a4d3342b658b316d4b1369d04a6e5b:16:73440927"
 
@@ -30,9 +30,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     super.viewDidLoad()
     
     fetchArticleFeed()
-    
-    // Register Class for Cell Reuse
-    articleListTableView.registerClass(FeedTableViewCell.self, forCellReuseIdentifier: feedCellReuseIdentifier)
   }
   
   func fetchArticleFeed() {
@@ -96,10 +93,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // Dequeue Table View Cell
     let feedTableViewCell = tableView.dequeueReusableCellWithIdentifier(feedCellReuseIdentifier, forIndexPath: indexPath) as? FeedTableViewCell
-
-    feedTableViewCell!.configureWithArticleItem(articleItem)
-    // Configure Table View Cell
-    //    tableViewCell.textLabel?.text = item
+    feedTableViewCell?.feedArticleItem = articleItem
     
     return feedTableViewCell!
   }

@@ -34,8 +34,6 @@ class FeedTableViewCell: UITableViewCell {
           }
         }
       }
-      
-
     }
   }
   
@@ -45,29 +43,8 @@ class FeedTableViewCell: UITableViewCell {
   }
   
   override func prepareForReuse() {
-    thumbnailImageView = nil
+    thumbnailImageView.image = nil
     thumbnailImageView.backgroundColor = UIColor.redColor()
-  }
-  
-  func configureWithArticleItem(feedArticleItem:FeedArticleItem) {
-    headlineLabel.text = feedArticleItem.headline!
-    taglineLabel.text = feedArticleItem.snippet
-    dateLabel.text = feedArticleItem.date
-    
-    if let thumbnailUrl = feedArticleItem.thumbnailUrl {
-      let url = NSURL(string: thumbnailUrl)
-      
-      let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-      
-      dispatch_async(dispatch_get_global_queue(priority, 0)) {
-        if let imageData = NSData(contentsOfURL: url!) {
-          dispatch_async(dispatch_get_main_queue()) {
-            self.thumbnailImageView.image = UIImage(data: imageData)
-          }
-        }
-      }
-    }
-
   }
   
   override func setSelected(selected: Bool, animated: Bool) {

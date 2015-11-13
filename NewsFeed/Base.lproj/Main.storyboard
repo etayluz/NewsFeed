@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Feed View Controller-->
@@ -23,44 +24,64 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="Kho-7e-JBv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.62745098039215685" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-DM-rVD" userLabel="Article List Table View">
-                                <rect key="frame" x="0.0" y="105" width="600" height="495"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-DM-rVD" userLabel="Article List Table View">
+                                <rect key="frame" x="0.0" y="62" width="600" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedTableViewCell" id="I77-YJ-SnZ" customClass="FeedTableViewCell" customModule="NewsFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="1" width="600" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I77-YJ-SnZ" id="EE5-Rx-JpG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82Z-g3-pJE">
-                                                    <rect key="frame" x="30" y="0.0" width="100" height="100"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="82Z-g3-pJE">
+                                                    <rect key="frame" x="10" y="21" width="79" height="79"/>
                                                     <color key="backgroundColor" red="1" green="0.18415083239999999" blue="0.173902327" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Headliner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63z-tD-eAd" userLabel="Headline Label">
-                                                    <rect key="frame" x="180" y="0.0" width="74" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headliner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63z-tD-eAd" userLabel="Headline Label">
+                                                    <rect key="frame" x="106" y="17" width="463" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Snippet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PX9-CE-xd0" userLabel="Snippet Label">
-                                                    <rect key="frame" x="288" y="15" width="59" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="snippet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PX9-CE-xd0" userLabel="Snippet Label">
+                                                    <rect key="frame" x="106" y="33" width="463" height="53"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twf-Eb-mbE" userLabel="Date Label">
-                                                    <rect key="frame" x="302" y="-1" width="36" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twf-Eb-mbE" userLabel="Date Label">
+                                                    <rect key="frame" x="106" y="84" width="131" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="131" id="CAA-ou-EWP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.33905460858585856" green="0.33905460858585856" blue="0.33905460858585856" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="63z-tD-eAd" firstAttribute="leading" secondItem="EE5-Rx-JpG" secondAttribute="leading" constant="106" id="2oU-u8-iKE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="63z-tD-eAd" secondAttribute="bottom" constant="74" id="2ze-N6-Pfd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="63z-tD-eAd" secondAttribute="trailing" constant="23" id="4c4-q2-HYB"/>
+                                                <constraint firstItem="PX9-CE-xd0" firstAttribute="leading" secondItem="82Z-g3-pJE" secondAttribute="trailing" constant="17" id="6uy-g1-S2Z"/>
+                                                <constraint firstItem="Twf-Eb-mbE" firstAttribute="leading" secondItem="PX9-CE-xd0" secondAttribute="leading" id="FcB-BL-MqF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Twf-Eb-mbE" secondAttribute="bottom" constant="7" id="Rpu-QF-p1P"/>
+                                                <constraint firstItem="Twf-Eb-mbE" firstAttribute="top" secondItem="EE5-Rx-JpG" secondAttribute="topMargin" constant="76" id="SGh-oQ-5PZ"/>
+                                                <constraint firstItem="82Z-g3-pJE" firstAttribute="top" secondItem="63z-tD-eAd" secondAttribute="top" constant="4" id="SXh-4f-Iqn"/>
+                                                <constraint firstItem="63z-tD-eAd" firstAttribute="top" secondItem="EE5-Rx-JpG" secondAttribute="top" constant="17" id="VPt-ms-4CK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="82Z-g3-pJE" secondAttribute="bottom" constant="12" id="b26-VO-ajp"/>
+                                                <constraint firstItem="PX9-CE-xd0" firstAttribute="leading" secondItem="63z-tD-eAd" secondAttribute="leading" id="bGb-eI-YtH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PX9-CE-xd0" secondAttribute="bottom" constant="26" id="uzU-mf-0de"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PX9-CE-xd0" secondAttribute="trailing" constant="23" id="xph-gh-Icg"/>
+                                                <constraint firstItem="PX9-CE-xd0" firstAttribute="top" secondItem="EE5-Rx-JpG" secondAttribute="topMargin" constant="25" id="yqY-2A-G2e"/>
+                                                <constraint firstItem="82Z-g3-pJE" firstAttribute="leading" secondItem="EE5-Rx-JpG" secondAttribute="leadingMargin" constant="2" id="zcF-0h-ftj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="Twf-Eb-mbE" id="IHR-40-Sbq"/>
@@ -80,7 +101,7 @@
                         <constraints>
                             <constraint firstItem="biZ-DM-rVD" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="L73-5g-xoG"/>
                             <constraint firstItem="VaR-cS-bl9" firstAttribute="trailing" secondItem="biZ-DM-rVD" secondAttribute="trailing" id="SC2-dP-hac"/>
-                            <constraint firstItem="biZ-DM-rVD" firstAttribute="top" secondItem="VaR-cS-bl9" secondAttribute="bottom" constant="43" id="V85-pN-s5B"/>
+                            <constraint firstItem="biZ-DM-rVD" firstAttribute="top" secondItem="VaR-cS-bl9" secondAttribute="bottom" id="V85-pN-s5B"/>
                             <constraint firstAttribute="trailing" secondItem="biZ-DM-rVD" secondAttribute="trailing" id="e8U-GV-Iwy"/>
                             <constraint firstItem="biZ-DM-rVD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g9O-iI-ZYQ"/>
                             <constraint firstItem="biZ-DM-rVD" firstAttribute="leading" secondItem="VaR-cS-bl9" secondAttribute="leading" id="gSx-im-RXa"/>
