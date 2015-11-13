@@ -8,6 +8,9 @@
 
 import UIKit
 
+private let baseUrl: String = "http://nytimes.com/"
+
+
 class FeedTableViewCell: UITableViewCell {
   
   @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -22,7 +25,7 @@ class FeedTableViewCell: UITableViewCell {
       dateLabel.text = feedArticleItem.date
       
       if let thumbnailUrl = feedArticleItem.thumbnailUrl {
-        let url = NSURL(string: thumbnailUrl)
+        let url = NSURL(string: baseUrl + thumbnailUrl)
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
 
@@ -44,7 +47,6 @@ class FeedTableViewCell: UITableViewCell {
   
   override func prepareForReuse() {
     thumbnailImageView.image = nil
-    thumbnailImageView.backgroundColor = UIColor.redColor()
   }
   
   override func setSelected(selected: Bool, animated: Bool) {
