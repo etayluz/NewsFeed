@@ -10,15 +10,6 @@ private let feedCellReuseIdentifier: String = "FeedTableViewCell"
 private let articleSearchApi = "http://api.nytimes.com/svc/search/v2/articlesearch.json?"
 private let apiKey = "32a4d3342b658b316d4b1369d04a6e5b:16:73440927"
 
-struct FeedArticleItem  {
-  
-  var identifier : String?
-  var webUrl : String?
-  var thumbnailUrl : String?
-  var date : String?
-  var headline : String?
-  var snippet : String?
-}
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet var articleListTableView: UITableView!
@@ -33,7 +24,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
   
   func fetchArticleFeed() {
-    for page in 1...5 {
+    var numberOfPageRequests:Int = 5;
+    for page in 1...numberOfPageRequests {
       let url = NSURL(string: articleSearchApi + "&page=" + String(page) + "&fq=document_type:(article)&sort=newest&api-key=" + apiKey)
       
       let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
@@ -41,25 +33,13 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
           if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
             if let jsonArticleItems = jsonResult["response"]!["docs"]! as? [[String: AnyObject]] {
               for jsonArticleItem in jsonArticleItems {
-                var feedArticleItem = FeedArticleItem()
-                feedArticleItem.identifier = jsonArticleItem["_id"]! as? String
-                feedArticleItem.webUrl = jsonArticleItem["web_url"] as? String
-                if let multimediaArray = jsonArticleItem["multimedia"] as? NSArray {
-                  if let thumbnailMetadata = multimediaArray.lastObject {
-                    feedArticleItem.thumbnailUrl = thumbnailMetadata["url"] as? String
- 
-                  }
-                }
-                feedArticleItem.date = jsonArticleItem["pub_date"]! as? String
-                feedArticleItem.date = feedArticleItem.date!.substringToIndex(feedArticleItem.date!.startIndex.advancedBy(10))
-                feedArticleItem.headline = jsonArticleItem["headline"]!["main"]! as? String
-                feedArticleItem.snippet = jsonArticleItem["snippet"]! as? String
-
+                let feedArticleItem = FeedArticleItem(jsonArticleItem: jsonArticleItem)
                 self.articleList.append(feedArticleItem)
               }
             }
             
-            if (page == 5) {
+            numberOfPageRequests--
+            if (numberOfPageRequests == 0) {
                 dispatch_async(dispatch_get_main_queue()) {
                   self.articleListTableView.reloadData()
                 }

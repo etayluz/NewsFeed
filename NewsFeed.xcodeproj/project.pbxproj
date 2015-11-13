@@ -14,6 +14,7 @@
 		B44B51DE1BF5125B0013FE9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44B51DD1BF5125B0013FE9B /* Assets.xcassets */; };
 		B44B51E11BF5125B0013FE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B44B51DF1BF5125B0013FE9B /* LaunchScreen.storyboard */; };
 		B44B51E91BF5147B0013FE9B /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */; };
+		B44B51EE1BF5D7F30013FE9B /* FeedArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B51ED1BF5D7F30013FE9B /* FeedArticleItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B44B51E01BF5125B0013FE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B44B51E21BF5125B0013FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		B44B51ED1BF5D7F30013FE9B /* FeedArticleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedArticleItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +60,41 @@
 		B44B51D21BF5125B0013FE9B /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B44B51EA1BF5D7350013FE9B /* View Controllers */,
+				B44B51EC1BF5D75F0013FE9B /* Views */,
+				B44B51EB1BF5D7510013FE9B /* Model */,
 				B44B51D31BF5125B0013FE9B /* AppDelegate.swift */,
-				B44B51D51BF5125B0013FE9B /* FeedViewController.swift */,
-				B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */,
-				B44B51D71BF5125B0013FE9B /* Main.storyboard */,
 				B44B51DD1BF5125B0013FE9B /* Assets.xcassets */,
+				B44B51D71BF5125B0013FE9B /* Main.storyboard */,
 				B44B51DF1BF5125B0013FE9B /* LaunchScreen.storyboard */,
 				B44B51E21BF5125B0013FE9B /* Info.plist */,
 				B44B51DA1BF5125B0013FE9B /* NewsFeed.xcdatamodeld */,
 			);
-			name = NewsFeed;
 			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		B44B51EA1BF5D7350013FE9B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B44B51D51BF5125B0013FE9B /* FeedViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B44B51EB1BF5D7510013FE9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B44B51ED1BF5D7F30013FE9B /* FeedArticleItem.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B44B51EC1BF5D75F0013FE9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B44B51E81BF5147B0013FE9B /* FeedTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +171,7 @@
 				B44B51DC1BF5125B0013FE9B /* NewsFeed.xcdatamodeld in Sources */,
 				B44B51E91BF5147B0013FE9B /* FeedTableViewCell.swift in Sources */,
 				B44B51D61BF5125B0013FE9B /* FeedViewController.swift in Sources */,
+				B44B51EE1BF5D7F30013FE9B /* FeedArticleItem.swift in Sources */,
 				B44B51D41BF5125B0013FE9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
